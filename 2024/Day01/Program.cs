@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Security.Cryptography.X509Certificates;
+
 var environment = Environment.GetEnvironmentVariables();
 
 string url = environment["URL"].ToString();
@@ -45,5 +47,18 @@ for (int i = 0; i < right.Count; i++){
     diferenceTotal = diferenceTotal+diference;
 }
 
+int totalScore = 0;
+for (int i = 0; i < right.Count; i++){
+    
+    int r = right[i];
+    
+    int count = left.FindAll(value => value == r).Count();
+    
+    int mult = right[i] * count;
 
-Console.WriteLine(diferenceTotal);
+    totalScore += mult;
+}
+
+Console.WriteLine($"somatoria diferença{diferenceTotal}");
+Console.WriteLine($"somatoria mult {totalScore}");
+
