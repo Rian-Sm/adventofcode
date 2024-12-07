@@ -1,4 +1,4 @@
-# Day 3: Mull It Over
+# Day 4: Ceres Search
 
 ##  Environment Variables
 
@@ -19,3 +19,6 @@ Para inciar a execução do projeto:
   dotnet run
 ```
 
+## Debuging 
+
+Se projeto foi iniciado em debug é necessário criar o diretorido de `Assets` na pasta de `bin` .
