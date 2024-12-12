@@ -1,0 +1,13 @@
+{
+     "profiles": {
+        "local":{
+            "commandName": "Project",
+            "environmentVariables": {
+            "DOTNET_ENVIRONMENT": "Local",
+            "URL":"",
+            "COOKIE":"" 
+            }
+        },
+        
+    },
+}
