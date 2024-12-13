@@ -2,7 +2,7 @@
 
 public class AOCAccessData
 {
-    public static async Task<string?> GetData(){
+    public static async Task<string[]> GetData(){
 
         var environment = Environment.GetEnvironmentVariables();
 
@@ -12,8 +12,10 @@ public class AOCAccessData
         HttpClient client = new HttpClient();
         client.DefaultRequestHeaders.Add("cookie", cookie);
         var response = await client.GetAsync(url);
+        var  statusCode  =  response.StatusCode.ToString();
         string responseString = await response.Content.ReadAsStringAsync();
 
-        return responseString;
+
+        return [statusCode,responseString];
     }
 }

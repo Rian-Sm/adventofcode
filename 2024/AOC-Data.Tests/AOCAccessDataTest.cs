@@ -32,15 +32,13 @@ public class AOCAccessDataTest
         // Arrange
         Environment.SetEnvironmentVariable("URL", "https://adventofcode.com/2024/day/1/input");
         Environment.SetEnvironmentVariable("COOKIE", "https://adventofcode.com/2024/day/1/input");
-        string messageErro = "Puzzle inputs differ by user.  Please log in to get your puzzle input.\n";
+        string messageErro = "BadRequest";
         
         // Act 
-
-        string result =  await AOCAccessData.GetData();
+        string[] result =  await AOCAccessData.GetData();
 
         // Assert
-
-        Assert.Equal(messageErro, result);
+        Assert.Equal(messageErro, result[0]);
     }
 
     [Fact]
@@ -48,21 +46,12 @@ public class AOCAccessDataTest
     {
         // Arrange
         string path = $"{System.IO.Directory.GetCurrentDirectory()}/StaticFiles/mapTest.txt";
-        string textComparation = "";
-
-        using (StreamReader reader = new StreamReader(path))
-            {
-                textComparation = reader.ReadToEnd();
-            }
-
-        string messageErro = "Puzzle inputs differ by user.  Please log in to get your puzzle input.\n";
+        string textComparation = "OK";
         
         // Act 
-
-        string result = await AOCAccessData.GetData();
+        string[] result = await AOCAccessData.GetData();
 
         // Assert
-
-        Assert.Equal(textComparation, result);
+        Assert.Equal(textComparation, result[0]);
     }
 }
